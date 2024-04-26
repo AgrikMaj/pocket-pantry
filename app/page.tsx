@@ -29,32 +29,34 @@ export default function Home( className: string ) {
   }
 
   const getData = async () => {
-    setIsLoading(true);
-    const response = await axios({
-      method: 'get',
-      url: 'https://api.api-ninjas.com/v1/recipe?query=' + query,
-      headers: {
-        'X-Api-Key': 'DVkgK/7hn0nsPrXtUxBPHg==ucPLFc5xzwmf77li'
-      },
-    })
-    .then(function (response) {
-      console.log(response.data);
-      setAvailable(true);
-      setIsLoading(false);
-      const formattedData = response.data.map((item: { title: string, ingredients: string, servings: string, instructions: string }) => {
-        return {
-          title: item.title,
-          ingredients: splitText(item.ingredients),
-          servings: item.servings,
-          instructions: item.instructions
-        };
-      });
-      setData(formattedData);
-    })
-    .catch(function (error) {
-      toast.error('Error fetching data');
-      console.log(error);
-    })
+    if (query.trim() != '') {
+      setIsLoading(true);
+      const response = await axios({
+        method: 'get',
+        url: 'https://api.api-ninjas.com/v1/recipe?query=' + query,
+        headers: {
+          'X-Api-Key': 'DVkgK/7hn0nsPrXtUxBPHg==ucPLFc5xzwmf77li'
+        },
+      })
+      .then(function (response) {
+        console.log(response.data);
+        setAvailable(true);
+        setIsLoading(false);
+        const formattedData = response.data.map((item: { title: string, ingredients: string, servings: string, instructions: string }) => {
+          return {
+            title: item.title,
+            ingredients: splitText(item.ingredients),
+            servings: item.servings,
+            instructions: item.instructions
+          };
+        });
+        setData(formattedData);
+      })
+      .catch(function (error) {
+        toast.error('Error fetching data');
+        console.log(error);
+      })
+    }
   }
 
   return (
