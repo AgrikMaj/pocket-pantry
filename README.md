@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![logo](https://github.com/AneelSen/pocket-pantry/assets/146166889/f97f550b-2c56-49ff-8b2a-2f8c80baae36)
+
+## Pocket Pantry
+Pocket Pantry is a website that fetches data from a recipe API when the user inputs an item name. Try entering "chicken" into the search box to get some delightful recipes!
+
+The website is running on (https://pocket-pantry-lilac.vercel.app).
+
+This is my submission for tech team of IEEE. Attached below is the github link of the extra project about spreadsheet data merging.
+
+## Extra submission
+(https://github.com/AneelSen/data-merger)
 
 ## Getting Started
 
